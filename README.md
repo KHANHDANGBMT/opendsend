@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# OpenSend Login
+
+A React application with TypeScript using Vite for OpenSend login and dashboard functionality.
+
+## Features
+
+- Login form with validation
+- Conditional routing based on user type
+- Dynamic dashboard with draggable and resizable widgets
+- Dark mode / light mode support
+- Responsive design
+
+## Tech Stack
+
+- React 18
+- TypeScript
+- Vite
+- Redux Toolkit with RTK Query
+- React Router DOM
+- React DnD (Drag and Drop)
+- React Resizable
+- TailwindCSS
+- React Icons
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js (v14 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository
+2. Install dependencies:
+
+```bash
+npm install
+# or
+yarn
+```
+
+3. Start the development server:
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open your browser and navigate to `http://localhost:5173`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Test Accounts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Client: `test+member@yopmail.com` / `12345678`
+- Admin: `test+admin@yopmail.com` / `12345678`
+- Onboarding: `test+onboarding@yopmail.com` / `12345678`
 
-## Learn More
+## API Endpoints
 
-To learn more about Next.js, take a look at the following resources:
+- Base URL: `https://stgapp-bwgkn3md.opensend.com`
+- Login: `/auth/login`
+- Get user profile: `/self/profile`
+- Get store info: `/store/{id}`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Authentication
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+After login, the server returns two tokens:
 
-## Deploy on Vercel
+- Access token
+- Client token
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+These tokens are included in subsequent request headers:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `Access-Token: Bearer <access_token>`
+- `Client-Token: <client_token>`
+
+## Preview
+
+Login page
+![Login page preview](./public/images/login-darkmode.png)
+![Login page light mode preview](./public/images/login-light-mode.png)
+
+Member dashboard
+![User dashboard dark mode](./public/images/user-dashboard-darkmode.png)
+![User dashboard light mode](./public/images/user-dashboard-light-mode.png)
+![Create widget modal](./public/images/create-widget-modal.png)
+![Config identities widget](./public/images/config-identities-widget.png)
+
+Admin
+![Config identities widget](./public/images/admin-manage-widget.png)
+
+Onboarding
+![Onboarding user](./public/images/onboarding-user.png)
+![Onboarding user step two](./public/images/onboarding-user-step-two.png)
+
+## License
+
+This project is licensed under the MIT License.
